@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Better than average</title>
+</head>
+<body>
+    <h1>Prikaz svih studenata sa prosekom vecim od {{min_prosek}}</h1>
+    {% if 'indeks' not in session: %}
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    {% else %}
+    <a href="/logout">Logout</a>
+    {% endif %}
+    <table border="1">
+        <tr>
+            <th>Broj indeksa</th>
+            <th>Ime i prezime</th>
+            <th>Godina rodjenja</th>
+            <th>Prosek</th>
+            <th>Broj polozenih ispita</th>
+            {% if 'indeks' in session: %}
+            <th>Opcije</th>
+            {% endif %}
+        </tr>
+        {% for k in korisnici: %}
+        <tr>
+            <td>{{k[1]}}</td>
+            <td>{{k[2]}}</td>
+            <td>{{k[3]}}</td>
+            <td>{{k[5]}}</td>
+            <td>{{k[6]}}</td>
+            {% if 'indeks' in session: %}
+            <td><a href="/update/{{k[1]}}">Update</a></td>
+            <td><a href="/delete/{{k[1]}}">Delete</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

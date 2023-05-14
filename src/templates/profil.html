@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if 'broj_prijave' in session: %}
+    <a href="/logout">Logout</a>
+    {% else: %}
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+    {% endif %}
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Broj prijave</th>
+            <th>Pol</th>
+            <th>Prva etapa</th>
+            <th>Druga etapa</th>
+            <th>Ukupno vreme</th>
+        </tr>
+        <tr>
+            <td>{{ b.get_id() }}</td>
+            <td><a href="*" style="text-decoration: none;">{{ b.get_broj_prijave() }}</a></td>
+            <td>{{ b.get_pol() }}</td>
+            <td>{{ b.get_prva_etapa() }}</td>
+            <td>{{ b.get_druga_etapa() }}</td>
+            <td>{{ b.izracunaj_ukupno_vreme() }}</td>
+        </tr>
+    </table>
+</body>
+</html>

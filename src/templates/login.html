@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Loginovanje studenta</h1>
+    <form action="/login" method="POST">
+        <p>
+            <label for="indeks">Index (sXX-XX)</label>
+            <input type="text" name="indeks">
+            {{indeks_greska}}
+        </p>
+        
+        <p>
+            <label for="password">Password</label>
+            <input type="password" name="password">
+            {{greska_pass}}
+        </p>
+        
+        <button type="submit" name="registracija">Uloguj se</button>
+    </form>
+</body>
+</html>
